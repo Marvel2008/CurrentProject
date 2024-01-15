@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Code Editor</title>
+    <!-- Bootstrap reboot (для сброса стилей) -->
+    <link rel="stylesheet" href="/css/Bootstrap/bootstrap-reboot.min.css">
+
+    <!-- Bootstrap сетка -->
+    <link rel="stylesheet" href="/css/Bootstrap/bootstrap-grid.min.css">
+
+    <!-- Include CodeMirror styles and library -->
+    <link rel="stylesheet" href="/css/MonacoEditor/codemirror-5.65.16/lib/codemirror.css">
+    <script src="/css/MonacoEditor/codemirror-5.65.16/lib/codemirror.js"></script>
+    <script src="/css/MonacoEditor/codemirror-5.65.16/mode/clike/clike.js"></script>
+
+    <link rel="stylesheet" href="/css/editorexample.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="navbar-brand">MyLeetCode</a>
+        <div class="navbar-wrap">
+            <ul class="navbar-menu">
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Problems</a></li>
+                <li><a href="#">Store</a></li>
+            </ul>
+            <a href="#" class="callback">User</a>
+        </div>
+    </div>
+</nav>
+<div class="content">
+    <div class="pContent">
+        <h1>Task</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur doloremque, quaerat quibusdam,
+            atque quas debitis repellendus fugiat minus pariatur eum ipsum sunt. Sit facilis aut qui quisquam ducimus mollitia sequi?</p>
+    </div>
+
+    <div class="formContent">
+        <form id="codeForm">
+            <!-- Create a container for the CodeMirror Editor -->
+            <textarea id="editor" name="javaCode" style="width: 100%; height: 400px;"></textarea>
+
+            <!-- Add Compile button and result textarea -->
+            <button type="button" onclick="compileCode()">Compile</button>
+            <textarea id="result" name="compileResult" style="width: 100%; height: 200px;"></textarea>
+
+            <button type="button" onclick="submitCode()">Submit Code</button>
+        </form>
+    </div>
+
+</div>
+<footer class="footer">
+    <div class="container">
+        <p>Copyright © 2023 MyLeetCode. All rights reserved.</p>
+    </div>
+</footer>
+<div class="tooltip" id="tooltip" th:object="${AuthorizedUser}">
+    <ul class="info">
+        <li th:text="${AuthorizedUser.getName()}"></li>
+        <li th:text="${AuthorizedUser.getUsername()}"></li>
+        <li th:text="${AuthorizedUser.getCoins()}"></li>
+        <li th:text="${AuthorizedUser.getProgress()}"></li>
+    </ul>
+</div>
+<script src="/css/js/mainscript.js"></script>
+</body>
+</html>
